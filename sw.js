@@ -1,5 +1,5 @@
 // 備拉片螺桿：離線快取。改版時把版本號加 1，手機下次開啟就會更新。
-const VERSION = 'bolt-v30';
+const VERSION = 'bolt-v31';
 const FILES = ['./', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png', './icon-maskable-512.png', './apple-touch-icon.png'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(VERSION).then(c => c.addAll(FILES)).then(() => self.skipWaiting()));
