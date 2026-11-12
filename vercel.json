@@ -1,10 +1,41 @@
 {
   "rewrites": [
-    { "source": "/gdrive/:path*", "destination": "https://drive.usercontent.google.com/:path*" },
-    { "source": "/gdocs/:path*", "destination": "https://drive.google.com/:path*" }
+    {
+      "source": "/gdrive/:path*",
+      "destination": "https://drive.usercontent.google.com/:path*"
+    },
+    {
+      "source": "/gdocs/:path*",
+      "destination": "https://drive.google.com/:path*"
+    }
   ],
   "headers": [
-    { "source": "/sw.js", "headers": [{ "key": "Cache-Control", "value": "no-cache" }] },
-    { "source": "/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }] }
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive, nosnippet"
+        }
+      ]
+    },
+    {
+      "source": "/sw.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    }
   ]
 }
